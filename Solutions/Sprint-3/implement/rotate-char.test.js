@@ -40,3 +40,50 @@ console.log(rotateCharacter("7", 5)); // Output: "7" (unchanged, not a letter)
 // Then it should correctly rotate the character by shift positions within the alphabet while handling the wraparound,
 // And the function should return the rotated character as a string (e.g., 'z' rotated by 3 should become 'c', 'Z' rotated by 3 should become 'C').
 console.log(rotateCharacter("z", 1)); // Output: "a" (unchanged, not a letter)
+
+// Note: I assume shift is a positive integer, and a character is
+// considered a letter if it is one of the 26 English letters.
+
+function rotateCharacter(ch, shift) {
+  const lowercases = "abcdefghijklmnopqrstuvwxyz";
+  const uppercases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  if (lowercases.indexOf(ch) != -1) {
+    // if lowercase letter
+    // Use mod to "unwrap" an out-of-bound index.
+    const targetIndex = (lowercases.indexOf(ch) + shift) % 26;
+    return lowercases.charAt(targetIndex);
+  } else if (uppercases.indexOf(ch) != -1) {
+    // if uppercase letter
+    // Same approach
+    const targetIndex = (uppercases.indexOf(ch) + shift) % 26;
+    return uppercases.charAt(targetIndex);
+  }
+
+  return ch;
+}
+
+// Testing the function in Jest syntax
+
+describe("testing rotateCharacter()", function () {
+  test("lowercase letters", function () {
+    expect(rotateCharacter("a", 26)).toBe("a");
+    expect(rotateCharacter("m", 3)).toBe("p");
+    expect(rotateCharacter("m", 3 + 26)).toBe("p");
+    expect(rotateCharacter("z", 3)).toBe("c");
+  });
+
+  test("uppercase letters", function () {
+    expect(rotateCharacter("H", 5)).toBe("M");
+    expect(rotateCharacter("A", 3)).toBe("D");
+    expect(rotateCharacter("Z", 1)).toBe("A");
+  });
+
+  test("non-letters", function () {
+    expect(rotateCharacter("@", 10)).toBe("@");
+    expect(rotateCharacter('"', 26)).toBe('"');
+    expect(rotateCharacter("\n", 1)).toBe("\n");
+    expect(rotateCharacter(" ", 100)).toBe(" ");
+    expect(rotateCharacter("É", 26)).toBe("É");
+  });
+});
