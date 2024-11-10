@@ -21,5 +21,10 @@ Here is a recommended order:
 ## Interpret
 
 In these tasks, you have to interpret a slightly larger program with some syntax / operators / functions that may be unfamiliar.
-You must use documentation to make sense of anything unfamiliar - learning how to look things up this way is a fundamental part of being a developer!
+You must use documentation to make sense of anything unfamiliar. Learning how to look things up this way is a fundamental part of being a developer!
 You can also use `console.log` to check the value of different variables in the code.
+
+## Extend
+
+In the prep for this sprint, we developed a function to convert 24 hour clock times to 12 hour clock times.
+Your task is to write tests for as many different groups of input data or edge cases as you can, and fix any bugs you find.

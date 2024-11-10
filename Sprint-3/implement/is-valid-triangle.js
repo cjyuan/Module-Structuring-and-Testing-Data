@@ -1,4 +1,4 @@
-// STRETCH Implement a function isValidTriangle
+// Implement a function isValidTriangle
 // Terms
 // the Triangle Inequality says: the sum of any two sides is always greater than the third side.
 // practical examples:
@@ -11,14 +11,10 @@
 // It's also true that b + c > a
 // It's also true that a + c > b
 
-// In our function isValidTriangle, we need to invalidate any triangle where the sum of any two sides is less than or equal to the length of the third side.
+// In our function isValidTriangle which takes as parameters the lengths of three sides, we need to invalidate any triangle where the sum of any two sides is less than or equal to the length of the third side.
 // and we need to validate any triangle where the sum of any two sides is greater than the length of the third side.
 
 // Acceptance criteria:
-
-// Given the lengths of three sides of a triangle (a, b, c),
-// When the function isValidTriangle is called with these side lengths as input,
-// Then it should:
 
 // scenario: invalid triangle
 // Given the side lengths a, b, and c,
